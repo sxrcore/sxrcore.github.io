@@ -10,3 +10,8 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+img {
+  width: 300px; /* уменьшаешь число = меньше картинка */
+  height: auto;
+}
