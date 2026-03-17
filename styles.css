@@ -1,11 +1,8 @@
-body {
+html, body {
   margin: 0;
-  height: 100vh;
-  background: #000; /* чёрный фон */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  height: 100%;
+  background-color: #000;
 }
 
 .card {
