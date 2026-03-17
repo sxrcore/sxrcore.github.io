@@ -9,11 +9,27 @@
       color: white;
       margin: 0;
     }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* по горизонтали */
+      align-items: center;     /* по вертикали */
+      height: 100vh;
+    }
+
+    img {
+      max-width: 80%;
+      height: auto;
+    }
   </style>
 </head>
 <body>
 
-<h1>Привет 👋</h1>
+<div class="center">
+  <h1>Привет 👋</h1>
+  <img src="image.jpg" alt="Фото">
+</div>
 
 </body>
 </html>
