@@ -1,60 +1,21 @@
 body {
-  font-family: 'Arial', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin: 0;
   height: 100vh;
-  gap: 20px;
-  background-color: #f0f0f0;
+  background: #000; /* чёрный фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
 }
 
-h1 {
-  color: #333;
-}
-
-.btn {
-  font-size: 16px;
-  padding: 12px 28px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* Градиентная кнопка */
-.btn-gradient {
-  background: linear-gradient(45deg, #6a11cb, #2575fc);
+.card {
+  background: rgba(255, 255, 255, 0.1); /* полупрозрачный блок */
+  backdrop-filter: blur(10px); /* эффект стекла */
+  -webkit-backdrop-filter: blur(10px); /* для Safari */
+  padding: 30px;
+  border-radius: 15px;
   color: white;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.btn-gradient:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-/* Контурная кнопка */
-.btn-outline {
-  background: transparent;
-  color: #2575fc;
-  border: 2px solid #2575fc;
-}
-
-.btn-outline:hover {
-  background: #2575fc;
-  color: white;
-  transform: scale(1.05);
-}
-
-/* Кнопка с тенью */
-.btn-shadow {
-  background: #ff6b6b;
-  color: white;
-  box-shadow: 0 5px 15px rgba(255,107,107,0.4);
-}
-
-.btn-shadow:hover {
-  box-shadow: 0 8px 25px rgba(255,107,107,0.6);
-  transform: translateY(-2px);
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
