@@ -1,208 +1,83 @@
 ```javascript
-// ==========================================
-// DISCORD INVITE
-// ==========================================
+const DISCORD_INVITE = "MMnEpJpXeS";
 
-const DISCORD_INVITE = "https://discord.gg/MMnEpJpXeS";
-
-
-// ==========================================
-// ЭЛЕМЕНТЫ СТРАНИЦЫ
-// ==========================================
-
-const serverName =
-    document.getElementById("serverName");
-
-const serverIcon =
-    document.getElementById("serverIcon");
-
-const members =
-    document.getElementById("members");
-
-const online =
-    document.getElementById("online");
-
-const status =
-    document.getElementById("status");
-
-const statusText =
-    document.getElementById("statusText");
-
-
-// ==========================================
-// ПОЛУЧАЕМ КОД ИЗ ССЫЛКИ
-// ==========================================
-
-function getInviteCode(url) {
-
-    return url
-        .split("/")
-        .filter(Boolean)
-        .pop();
-
-}
-
-
-// ==========================================
-// ЗАГРУЗКА СТАТИСТИКИ
-// ==========================================
+const serverName = document.getElementById("serverName");
+const serverIcon = document.getElementById("serverIcon");
+const members = document.getElementById("members");
+const online = document.getElementById("online");
+const status = document.getElementById("status");
+const statusText = document.getElementById("statusText");
 
 async function loadServer() {
+    console.log("1. script.js работает");
+
+    const apiUrl =
+        `https://discord.com/api/v10/invites/${DISCORD_INVITE}?with_counts=true`;
+
+    console.log("2. Запрос:", apiUrl);
 
     try {
+        const response = await fetch(apiUrl);
 
-        const inviteCode =
-            getInviteCode(DISCORD_INVITE);
-
-
-        /*
-         * Discord Invite API
-         *
-         * Всё берём по invite-ссылке.
-         * ID сервера вручную не указываем.
-         */
-
-        const apiUrl =
-            `https://discord.com/api/v10/invites/${inviteCode}?with_counts=true`;
-
-
-        const response =
-            await fetch(apiUrl);
-
+        console.log("3. Ответ Discord:", response.status);
 
         if (!response.ok) {
-
-            throw new Error(
-                `Discord API: ${response.status}`
-            );
-
+            throw new Error(`Discord HTTP ${response.status}`);
         }
 
+        const data = await response.json();
 
-        const data =
-            await response.json();
+        console.log("4. Данные Discord:", data);
 
-
-        // ======================================
-        // НАЗВАНИЕ
-        // ======================================
-
-        if (data.guild?.name) {
-
-            serverName.textContent =
-                data.guild.name;
-
+        if (!data.guild) {
+            throw new Error("Discord не вернул guild");
         }
 
+        // Название
+        serverName.textContent = data.guild.name;
 
-        // ======================================
-        // УЧАСТНИКИ
-        // ======================================
+        // Участники
+        members.textContent =
+            Number(data.approximate_member_count)
+                .toLocaleString("ru-RU");
 
-        if (
-            typeof data.approximate_member_count
-            === "number"
-        ) {
+        // Онлайн
+        online.textContent =
+            Number(data.approximate_presence_count)
+                .toLocaleString("ru-RU");
 
-            members.textContent =
-                data.approximate_member_count
-                    .toLocaleString("ru-RU");
-
-        }
-
-
-        // ======================================
-        // ОНЛАЙН
-        // ======================================
-
-        if (
-            typeof data.approximate_presence_count
-            === "number"
-        ) {
-
-            online.textContent =
-                data.approximate_presence_count
-                    .toLocaleString("ru-RU");
-
-        }
-
-
-        // ======================================
-        // ИКОНКА
-        // ======================================
-
-        if (
-            data.guild?.id &&
-            data.guild?.icon
-        ) {
-
-            const icon =
-                data.guild.icon;
-
+        // Иконка
+        if (data.guild.icon) {
             const extension =
-                icon.startsWith("a_")
+                data.guild.icon.startsWith("a_")
                     ? "gif"
                     : "png";
-
 
             serverIcon.src =
                 `https://cdn.discordapp.com/icons/` +
                 `${data.guild.id}/` +
-                `${icon}.${extension}?size=256`;
-
+                `${data.guild.icon}.${extension}?size=256`;
         }
 
-
-        // ======================================
-        // СТАТУС
-        // ======================================
-
+        // Статус
         status.classList.remove("offline");
+        statusText.textContent = "Сервер работает";
 
-        statusText.textContent =
-            "Сервер работает";
-
-
-        console.log(
-            "Discord data:",
-            data
-        );
-
+        console.log("5. Всё успешно!");
 
     } catch (error) {
 
-        console.error(
-            "Не удалось получить Discord:",
-            error
-        );
+        console.error("ОШИБКА:", error);
 
+        status.classList.add("offline");
+        statusText.textContent = "Ошибка загрузки";
 
         members.textContent = "—";
         online.textContent = "—";
-
-
-        status.classList.add("offline");
-
-        statusText.textContent =
-            "Не удалось загрузить";
     }
-
 }
-
-
-// ==========================================
-// ЗАПУСК
-// ==========================================
 
 loadServer();
 
-
-// ==========================================
-// ОБНОВЛЕНИЕ КАЖДУЮ МИНУТУ
-// ==========================================
-
-setInterval(
-    loadServer,
-    60 * 1000
-);
+setInterval(loadServer, 60000);
 ```
