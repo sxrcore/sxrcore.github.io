@@ -1,0 +1,319 @@
+```css
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #39ff88;
+    --green-dark: #071b11;
+    --text: #f1fff6;
+    --muted: #8fa99a;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 50% 0%, #123c27 0%, transparent 45%),
+        linear-gradient(135deg, #020805, #06130c 50%, #020805);
+
+    overflow-x: hidden;
+}
+
+/* ---------------- Background ---------------- */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.18;
+}
+
+.glow-1 {
+    background: #00ff73;
+    top: -200px;
+    left: -150px;
+}
+
+.glow-2 {
+    background: #00c853;
+    right: -200px;
+    top: 25%;
+}
+
+.glow-3 {
+    background: #00ff9d;
+    bottom: -300px;
+    left: 30%;
+}
+
+/* ---------------- Main ---------------- */
+
+.container {
+    position: relative;
+    z-index: 1;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+}
+
+/* ---------------- Glass Card ---------------- */
+
+.glass-card {
+    width: 100%;
+    max-width: 480px;
+
+    padding: 42px 34px 28px;
+
+    text-align: center;
+
+    background: rgba(10, 30, 20, 0.48);
+
+    border: 1px solid rgba(120, 255, 170, 0.16);
+
+    border-radius: 28px;
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    animation: cardAppear 0.8s ease forwards;
+}
+
+/* ---------------- Avatar ---------------- */
+
+.avatar {
+    width: 86px;
+    height: 86px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    color: #00170b;
+
+    background:
+        linear-gradient(135deg, #6affaa, #20d66b);
+
+    box-shadow:
+        0 0 35px rgba(57, 255, 136, 0.35);
+
+    border: 3px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ---------------- Title ---------------- */
+
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    margin-top: 7px;
+    margin-bottom: 30px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ---------------- Social Links ---------------- */
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 42px 1fr 25px;
+    align-items: center;
+
+    height: 62px;
+    padding: 0 18px;
+
+    color: var(--text);
+    text-decoration: none;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(255, 255, 255, 0.075);
+
+    border-radius: 16px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.social:hover {
+    transform: translateY(-3px);
+
+    background: rgba(57, 255, 136, 0.08);
+
+    border-color: rgba(57, 255, 136, 0.28);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25),
+        0 0 20px rgba(57, 255, 136, 0.06);
+}
+
+.social span:nth-child(2) {
+    text-align: left;
+
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: rgba(57, 255, 136, 0.09);
+
+    color: var(--green);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+}
+
+.arrow {
+    color: #6c8275;
+
+    font-size: 18px;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.social:hover .arrow {
+    color: var(--green);
+    transform: translate(2px, -2px);
+}
+
+/* ---------------- Platform hover colors ---------------- */
+
+.twitch:hover {
+    border-color: rgba(145, 70, 255, 0.4);
+    background: rgba(145, 70, 255, 0.08);
+}
+
+.youtube:hover {
+    border-color: rgba(255, 50, 50, 0.4);
+    background: rgba(255, 50, 50, 0.06);
+}
+
+.soundcloud:hover {
+    border-color: rgba(255, 120, 30, 0.4);
+    background: rgba(255, 120, 30, 0.06);
+}
+
+.steam:hover {
+    border-color: rgba(100, 150, 190, 0.4);
+    background: rgba(100, 150, 190, 0.06);
+}
+
+.instagram:hover {
+    border-color: rgba(220, 80, 180, 0.4);
+    background: rgba(220, 80, 180, 0.06);
+}
+
+/* ---------------- Footer ---------------- */
+
+.footer {
+    margin-top: 28px;
+
+    color: #53685c;
+
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+/* ---------------- Animation ---------------- */
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ---------------- Mobile ---------------- */
+
+@media (max-width: 520px) {
+
+    .container {
+        padding: 20px 14px;
+    }
+
+    .glass-card {
+        padding: 35px 20px 24px;
+        border-radius: 24px;
+    }
+
+    .avatar {
+        width: 76px;
+        height: 76px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .social {
+        height: 58px;
+        padding: 0 14px;
+    }
+}
+```
