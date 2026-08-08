@@ -1,91 +1,166 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+
+/* =========================
+   RESET
+========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    --green: #39ff88;
-    --green-dark: #071b11;
-    --text: #f1fff6;
-    --muted: #8fa99a;
+
+/* =========================
+   HTML / BODY
+========================= */
+
+html {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden !important;
+
+    overscroll-behavior: none;
 }
 
 body {
+    width: 100%;
+    height: 100%;
     min-height: 100vh;
-    font-family: 'Inter', sans-serif;
-    color: var(--text);
-    background:
-        radial-gradient(circle at 50% 0%, #123c27 0%, transparent 45%),
-        linear-gradient(135deg, #020805, #06130c 50%, #020805);
 
-    overflow-x: hidden;
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden !important;
+
+    font-family: 'Inter', sans-serif;
+
+    color: #f1fff6;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #123c27 0%,
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #020805,
+            #06130c 50%,
+            #020805
+        );
+
+    overscroll-behavior: none;
 }
 
-/* ---------------- Background ---------------- */
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+    --green: #39ff88;
+    --green-light: #6affaa;
+
+    --text: #f1fff6;
+    --muted: #8fa99a;
+
+    --glass: rgba(10, 30, 20, 0.48);
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
 
 .background {
     position: fixed;
     inset: 0;
+
+    width: 100%;
+    height: 100%;
+
     overflow: hidden;
+
     pointer-events: none;
+
+    z-index: 0;
 }
 
 .glow {
     position: absolute;
+
     width: 500px;
     height: 500px;
+
     border-radius: 50%;
+
     filter: blur(120px);
+
     opacity: 0.18;
 }
 
 .glow-1 {
     background: #00ff73;
+
     top: -200px;
     left: -150px;
 }
 
 .glow-2 {
     background: #00c853;
+
     right: -200px;
     top: 25%;
 }
 
 .glow-3 {
     background: #00ff9d;
+
     bottom: -300px;
     left: 30%;
 }
 
-/* ---------------- Main ---------------- */
+
+/* =========================
+   MAIN CONTAINER
+========================= */
 
 .container {
-    position: relative;
-    z-index: 1;
+    position: fixed;
+    inset: 0;
 
-    min-height: 100vh;
+    width: 100%;
+    height: 100%;
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
-    padding: 30px 20px;
+    padding: 20px;
+
+    overflow: hidden;
+
+    z-index: 1;
 }
 
-/* ---------------- Glass Card ---------------- */
+
+/* =========================
+   GLASS CARD
+========================= */
 
 .glass-card {
     width: 100%;
     max-width: 480px;
 
-    padding: 42px 34px 28px;
+    padding: 28px 34px 28px;
 
     text-align: center;
 
-    background: rgba(10, 30, 20, 0.48);
+    background: var(--glass);
 
     border: 1px solid rgba(120, 255, 170, 0.16);
 
@@ -101,7 +176,77 @@ body {
     animation: cardAppear 0.8s ease forwards;
 }
 
-/* ---------------- Avatar ---------------- */
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    width: 100%;
+
+    margin-bottom: 30px;
+
+    padding: 5px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 14px;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.nav-link {
+    flex: 1;
+
+    padding: 9px 8px;
+
+    color: #789084;
+
+    text-decoration: none;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    border-radius: 10px;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.nav-link:hover {
+    color: #dfffea;
+
+    background: rgba(57, 255, 136, 0.06);
+}
+
+.nav-link.active {
+    color: var(--green);
+
+    background: rgba(57, 255, 136, 0.10);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(57, 255, 136, 0.12),
+        0 0 18px rgba(57, 255, 136, 0.05);
+}
+
+
+/* =========================
+   AVATAR
+========================= */
 
 .avatar {
     width: 86px;
@@ -110,6 +255,7 @@ body {
     margin: 0 auto 20px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -121,7 +267,11 @@ body {
     color: #00170b;
 
     background:
-        linear-gradient(135deg, #6affaa, #20d66b);
+        linear-gradient(
+            135deg,
+            var(--green-light),
+            #20d66b
+        );
 
     box-shadow:
         0 0 35px rgba(57, 255, 136, 0.35);
@@ -129,11 +279,16 @@ body {
     border: 3px solid rgba(255, 255, 255, 0.12);
 }
 
-/* ---------------- Title ---------------- */
+
+/* =========================
+   TITLE
+========================= */
 
 h1 {
     font-size: 32px;
+
     font-weight: 700;
+
     letter-spacing: -1px;
 }
 
@@ -144,15 +299,22 @@ h1 {
     color: var(--muted);
 
     font-size: 14px;
+
     letter-spacing: 2px;
+
     text-transform: uppercase;
 }
 
-/* ---------------- Social Links ---------------- */
+
+/* =========================
+   SOCIAL LINKS
+========================= */
 
 .links {
     display: flex;
+
     flex-direction: column;
+
     gap: 12px;
 }
 
@@ -160,18 +322,29 @@ h1 {
     position: relative;
 
     display: grid;
-    grid-template-columns: 42px 1fr 25px;
+
+    grid-template-columns:
+        42px
+        1fr
+        25px;
+
     align-items: center;
 
+    width: 100%;
     height: 62px;
+
     padding: 0 18px;
 
     color: var(--text);
+
     text-decoration: none;
 
-    background: rgba(255, 255, 255, 0.035);
+    background:
+        rgba(255, 255, 255, 0.035);
 
-    border: 1px solid rgba(255, 255, 255, 0.075);
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.075);
 
     border-radius: 16px;
 
@@ -185,9 +358,11 @@ h1 {
 .social:hover {
     transform: translateY(-3px);
 
-    background: rgba(57, 255, 136, 0.08);
+    background:
+        rgba(57, 255, 136, 0.08);
 
-    border-color: rgba(57, 255, 136, 0.28);
+    border-color:
+        rgba(57, 255, 136, 0.28);
 
     box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.25),
@@ -198,28 +373,42 @@ h1 {
     text-align: left;
 
     font-size: 15px;
+
     font-weight: 500;
 }
+
+
+/* =========================
+   ICON
+========================= */
 
 .icon {
     width: 30px;
     height: 30px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     border-radius: 9px;
 
-    background: rgba(57, 255, 136, 0.09);
+    background:
+        rgba(57, 255, 136, 0.09);
 
     color: var(--green);
 
     font-size: 10px;
+
     font-weight: 700;
 
     letter-spacing: -0.5px;
 }
+
+
+/* =========================
+   ARROW
+========================= */
 
 .arrow {
     color: #6c8275;
@@ -233,37 +422,60 @@ h1 {
 
 .social:hover .arrow {
     color: var(--green);
-    transform: translate(2px, -2px);
+
+    transform:
+        translate(2px, -2px);
 }
 
-/* ---------------- Platform hover colors ---------------- */
+
+/* =========================
+   PLATFORM COLORS
+========================= */
 
 .twitch:hover {
-    border-color: rgba(145, 70, 255, 0.4);
-    background: rgba(145, 70, 255, 0.08);
+    border-color:
+        rgba(145, 70, 255, 0.4);
+
+    background:
+        rgba(145, 70, 255, 0.08);
 }
 
 .youtube:hover {
-    border-color: rgba(255, 50, 50, 0.4);
-    background: rgba(255, 50, 50, 0.06);
+    border-color:
+        rgba(255, 50, 50, 0.4);
+
+    background:
+        rgba(255, 50, 50, 0.06);
 }
 
 .soundcloud:hover {
-    border-color: rgba(255, 120, 30, 0.4);
-    background: rgba(255, 120, 30, 0.06);
+    border-color:
+        rgba(255, 120, 30, 0.4);
+
+    background:
+        rgba(255, 120, 30, 0.06);
 }
 
 .steam:hover {
-    border-color: rgba(100, 150, 190, 0.4);
-    background: rgba(100, 150, 190, 0.06);
+    border-color:
+        rgba(100, 150, 190, 0.4);
+
+    background:
+        rgba(100, 150, 190, 0.06);
 }
 
 .instagram:hover {
-    border-color: rgba(220, 80, 180, 0.4);
-    background: rgba(220, 80, 180, 0.06);
+    border-color:
+        rgba(220, 80, 180, 0.4);
+
+    background:
+        rgba(220, 80, 180, 0.06);
 }
 
-/* ---------------- Footer ---------------- */
+
+/* =========================
+   FOOTER
+========================= */
 
 .footer {
     margin-top: 28px;
@@ -271,47 +483,89 @@ h1 {
     color: #53685c;
 
     font-size: 11px;
+
     letter-spacing: 0.5px;
 }
 
-/* ---------------- Animation ---------------- */
+
+/* =========================
+   ANIMATION
+========================= */
 
 @keyframes cardAppear {
+
     from {
         opacity: 0;
-        transform: translateY(20px) scale(0.98);
+
+        transform:
+            translateY(20px)
+            scale(0.98);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
-/* ---------------- Mobile ---------------- */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 520px) {
 
     .container {
-        padding: 20px 14px;
+        padding: 14px;
     }
 
     .glass-card {
-        padding: 35px 20px 24px;
+        padding: 22px 18px 22px;
+
         border-radius: 24px;
     }
 
+    .navigation {
+        gap: 3px;
+
+        margin-bottom: 22px;
+    }
+
+    .nav-link {
+        padding: 8px 4px;
+
+        font-size: 9px;
+    }
+
     .avatar {
-        width: 76px;
-        height: 76px;
+        width: 72px;
+        height: 72px;
+
+        margin-bottom: 16px;
     }
 
     h1 {
         font-size: 28px;
     }
 
+    .subtitle {
+        margin-bottom: 24px;
+    }
+
+    .links {
+        gap: 9px;
+    }
+
     .social {
-        height: 58px;
-        padding: 0 14px;
+        height: 56px;
+
+        padding: 0 13px;
+    }
+
+    .footer {
+        margin-top: 20px;
     }
 }
