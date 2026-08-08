@@ -6,15 +6,9 @@
     box-sizing: border-box;
 }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
 :root {
     --green: #39ff88;
+    --green-dark: #071b11;
     --text: #f1fff6;
     --muted: #8fa99a;
 }
@@ -23,17 +17,14 @@ body {
     min-height: 100vh;
     font-family: 'Inter', sans-serif;
     color: var(--text);
-
     background:
         radial-gradient(circle at 50% 0%, #123c27 0%, transparent 45%),
         linear-gradient(135deg, #020805, #06130c 50%, #020805);
 
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
-/* =========================
-   BACKGROUND
-========================= */
+/* ---------------- Background ---------------- */
 
 .background {
     position: fixed;
@@ -44,14 +35,10 @@ body {
 
 .glow {
     position: absolute;
-
     width: 500px;
     height: 500px;
-
     border-radius: 50%;
-
     filter: blur(120px);
-
     opacity: 0.18;
 }
 
@@ -73,27 +60,22 @@ body {
     left: 30%;
 }
 
-/* =========================
-   MAIN
-========================= */
+/* ---------------- Main ---------------- */
 
 .container {
     position: relative;
     z-index: 1;
 
-    width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 20px;
+    padding: 30px 20px;
 }
 
-/* =========================
-   GLASS CARD
-========================= */
+/* ---------------- Glass Card ---------------- */
 
 .glass-card {
     width: 100%;
@@ -119,9 +101,7 @@ body {
     animation: cardAppear 0.8s ease forwards;
 }
 
-/* =========================
-   AVATAR
-========================= */
+/* ---------------- Avatar ---------------- */
 
 .avatar {
     width: 86px;
@@ -149,9 +129,7 @@ body {
     border: 3px solid rgba(255, 255, 255, 0.12);
 }
 
-/* =========================
-   TITLE
-========================= */
+/* ---------------- Title ---------------- */
 
 h1 {
     font-size: 32px;
@@ -170,9 +148,7 @@ h1 {
     text-transform: uppercase;
 }
 
-/* =========================
-   SOCIAL LINKS
-========================= */
+/* ---------------- Social Links ---------------- */
 
 .links {
     display: flex;
@@ -187,9 +163,7 @@ h1 {
     grid-template-columns: 42px 1fr 25px;
     align-items: center;
 
-    width: 100%;
     height: 62px;
-
     padding: 0 18px;
 
     color: var(--text);
@@ -227,10 +201,6 @@ h1 {
     font-weight: 500;
 }
 
-/* =========================
-   ICON
-========================= */
-
 .icon {
     width: 30px;
     height: 30px;
@@ -251,10 +221,6 @@ h1 {
     letter-spacing: -0.5px;
 }
 
-/* =========================
-   ARROW
-========================= */
-
 .arrow {
     color: #6c8275;
 
@@ -267,47 +233,37 @@ h1 {
 
 .social:hover .arrow {
     color: var(--green);
-
     transform: translate(2px, -2px);
 }
 
-/* =========================
-   PLATFORM COLORS
-========================= */
+/* ---------------- Platform hover colors ---------------- */
 
 .twitch:hover {
     border-color: rgba(145, 70, 255, 0.4);
-
     background: rgba(145, 70, 255, 0.08);
 }
 
 .youtube:hover {
     border-color: rgba(255, 50, 50, 0.4);
-
     background: rgba(255, 50, 50, 0.06);
 }
 
 .soundcloud:hover {
     border-color: rgba(255, 120, 30, 0.4);
-
     background: rgba(255, 120, 30, 0.06);
 }
 
 .steam:hover {
     border-color: rgba(100, 150, 190, 0.4);
-
     background: rgba(100, 150, 190, 0.06);
 }
 
 .instagram:hover {
     border-color: rgba(220, 80, 180, 0.4);
-
     background: rgba(220, 80, 180, 0.06);
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* ---------------- Footer ---------------- */
 
 .footer {
     margin-top: 28px;
@@ -315,74 +271,47 @@ h1 {
     color: #53685c;
 
     font-size: 11px;
-
     letter-spacing: 0.5px;
 }
 
-/* =========================
-   ANIMATION
-========================= */
+/* ---------------- Animation ---------------- */
 
 @keyframes cardAppear {
     from {
         opacity: 0;
-
-        transform:
-            translateY(20px)
-            scale(0.98);
+        transform: translateY(20px) scale(0.98);
     }
 
     to {
         opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* ---------------- Mobile ---------------- */
 
 @media (max-width: 520px) {
 
     .container {
-        padding: 14px;
+        padding: 20px 14px;
     }
 
     .glass-card {
-        padding: 32px 18px 22px;
-
+        padding: 35px 20px 24px;
         border-radius: 24px;
     }
 
     .avatar {
-        width: 72px;
-        height: 72px;
-
-        margin-bottom: 16px;
+        width: 76px;
+        height: 76px;
     }
 
     h1 {
         font-size: 28px;
     }
 
-    .subtitle {
-        margin-bottom: 24px;
-    }
-
-    .links {
-        gap: 9px;
-    }
-
     .social {
-        height: 56px;
-
-        padding: 0 13px;
-    }
-
-    .footer {
-        margin-top: 20px;
+        height: 58px;
+        padding: 0 14px;
     }
 }
