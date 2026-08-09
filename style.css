@@ -148,7 +148,7 @@ body {
 
 
 /* =========================================================
-   MAIN CONTAINER
+   CONTAINER
 ========================================================= */
 
 .container {
@@ -174,14 +174,14 @@ body {
 
 
 /* =========================================================
-   GLASS CARD
+   CARD
 ========================================================= */
 
 .glass-card {
 
     width: 100%;
 
-    max-width: 480px;
+    max-width: 420px;
 
     padding: 34px 34px 28px;
 
@@ -279,7 +279,7 @@ h1 {
 
     color: var(--muted);
 
-    font-size: 14px;
+    font-size: 13px;
 
     letter-spacing: 2px;
 
@@ -297,20 +297,20 @@ h1 {
 
     height: 2px;
 
-    margin: 0 auto 25px;
+    margin-bottom: 28px;
 
     overflow: hidden;
 
     opacity: 1;
 
     transition:
-        opacity 0.35s ease,
-        height 0.35s ease,
-        margin 0.35s ease;
+        opacity 0.3s ease,
+        height 0.3s ease,
+        margin 0.3s ease;
 }
 
 
-.loader-wrapper.hidden {
+.loader-wrapper.hide {
 
     opacity: 0;
 
@@ -322,15 +322,13 @@ h1 {
 
 .loader {
 
-    position: relative;
-
     width: 100%;
 
     height: 2px;
 
     overflow: hidden;
 
-    border-radius: 10px;
+    border-radius: 100px;
 
     background:
         rgba(57, 255, 136, 0.08);
@@ -339,15 +337,11 @@ h1 {
 
 .loader-progress {
 
-    position: absolute;
+    width: 0%;
 
-    top: 0;
-    left: 0;
-
-    width: 0;
     height: 100%;
 
-    border-radius: inherit;
+    border-radius: 100px;
 
     background:
         linear-gradient(
@@ -358,20 +352,21 @@ h1 {
         );
 
     box-shadow:
-        0 0 10px
-        rgba(57, 255, 136, 0.7);
+        0 0 12px
+        rgba(57, 255, 136, 0.8);
 
     animation:
-        loading 1.2s
+        loaderProgress
+        1.4s
         cubic-bezier(0.4, 0, 0.2, 1)
         forwards;
 }
 
 
-@keyframes loading {
+@keyframes loaderProgress {
 
     0% {
-        width: 0;
+        width: 0%;
     }
 
     100% {
@@ -381,21 +376,25 @@ h1 {
 
 
 /* =========================================================
-   SOCIAL LINKS
+   SOCIAL GRID
 ========================================================= */
 
 .links {
 
-    display: flex;
+    display: grid;
 
-    flex-direction: column;
+    grid-template-columns:
+        repeat(2, 1fr);
 
     gap: 12px;
+
+    width: 100%;
 
     opacity: 0;
 
     transform:
-        translateY(8px);
+        translateY(12px)
+        scale(0.98);
 
     pointer-events: none;
 
@@ -405,43 +404,36 @@ h1 {
 }
 
 
-.links.visible {
+.links.show {
 
     opacity: 1;
 
     transform:
-        translateY(0);
+        translateY(0)
+        scale(1);
 
     pointer-events: auto;
 }
 
 
 /* =========================================================
-   SOCIAL BUTTON
+   SOCIAL ICON BUTTON
 ========================================================= */
 
 .social {
 
-    position: relative;
-
-    display: grid;
-
-    grid-template-columns:
-        42px
-        1fr
-        25px;
-
-    align-items: center;
-
     width: 100%;
 
-    height: 62px;
+    aspect-ratio: 1 / 1;
 
-    padding: 0 18px;
+    display: flex;
 
-    color: var(--text);
+    align-items: center;
+    justify-content: center;
 
     text-decoration: none;
+
+    border-radius: 20px;
 
     background:
         rgba(255, 255, 255, 0.035);
@@ -449,8 +441,6 @@ h1 {
     border:
         1px solid
         rgba(255, 255, 255, 0.075);
-
-    border-radius: 16px;
 
     transition:
         transform 0.25s ease,
@@ -460,14 +450,11 @@ h1 {
 }
 
 
-/* =========================================================
-   SOCIAL HOVER
-========================================================= */
-
 .social:hover {
 
     transform:
-        translateY(-3px);
+        translateY(-5px)
+        scale(1.02);
 
     background:
         rgba(57, 255, 136, 0.08);
@@ -477,63 +464,172 @@ h1 {
 
     box-shadow:
 
-        0 10px 30px
-        rgba(0, 0, 0, 0.25),
+        0 12px 30px
+        rgba(0, 0, 0, 0.3),
 
-        0 0 20px
-        rgba(57, 255, 136, 0.06);
-}
-
-
-.social span:nth-child(2) {
-
-    text-align: left;
-
-    font-size: 15px;
-
-    font-weight: 500;
+        0 0 25px
+        rgba(57, 255, 136, 0.08);
 }
 
 
 /* =========================================================
-   SOCIAL ICON
+   ICON
 ========================================================= */
 
 .icon {
 
-    width: 30px;
-    height: 30px;
+    width: 64px;
+    height: 64px;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    border-radius: 9px;
-
-    background:
-        rgba(57, 255, 136, 0.09);
+    border-radius: 18px;
 
     color: var(--green);
 
-    font-size: 10px;
+    background:
+        rgba(57, 255, 136, 0.08);
 
-    font-weight: 700;
-
-    letter-spacing: -0.5px;
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
 }
 
 
 .icon svg {
 
-    width: 17px;
-    height: 17px;
-
-    fill: currentColor;
-
-    stroke: none;
+    width: 34px;
+    height: 34px;
 
     display: block;
+
+    fill: currentColor;
+}
+
+
+.social:hover .icon {
+
+    transform:
+        scale(1.08);
+}
+
+
+/* =========================================================
+   TWITCH
+========================================================= */
+
+.twitch:hover {
+
+    border-color:
+        rgba(145, 70, 255, 0.45);
+
+    background:
+        rgba(145, 70, 255, 0.08);
+}
+
+
+.twitch:hover .icon {
+
+    color: #a970ff;
+
+    background:
+        rgba(145, 70, 255, 0.14);
+}
+
+
+/* =========================================================
+   YOUTUBE
+========================================================= */
+
+.youtube:hover {
+
+    border-color:
+        rgba(255, 50, 50, 0.45);
+
+    background:
+        rgba(255, 50, 50, 0.07);
+}
+
+
+.youtube:hover .icon {
+
+    color: #ff4d4d;
+
+    background:
+        rgba(255, 50, 50, 0.13);
+}
+
+
+/* =========================================================
+   SOUNDCLOUD
+========================================================= */
+
+.soundcloud:hover {
+
+    border-color:
+        rgba(255, 120, 30, 0.45);
+
+    background:
+        rgba(255, 120, 30, 0.07);
+}
+
+
+.soundcloud:hover .icon {
+
+    color: #ff8a3d;
+
+    background:
+        rgba(255, 120, 30, 0.13);
+}
+
+
+/* =========================================================
+   STEAM
+========================================================= */
+
+.steam:hover {
+
+    border-color:
+        rgba(100, 150, 190, 0.45);
+
+    background:
+        rgba(100, 150, 190, 0.07);
+}
+
+
+.steam:hover .icon {
+
+    color: #79b8e5;
+
+    background:
+        rgba(100, 150, 190, 0.13);
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.instagram:hover {
+
+    border-color:
+        rgba(220, 80, 180, 0.45);
+
+    background:
+        rgba(220, 80, 180, 0.07);
+}
+
+
+.instagram:hover .icon {
+
+    color: #ed72c4;
+
+    background:
+        rgba(220, 80, 180, 0.13);
 }
 
 
@@ -547,7 +643,7 @@ h1 {
 }
 
 
-.instagram .icon .instagram-dot {
+.instagram .instagram-dot {
 
     fill: currentColor;
 
@@ -556,126 +652,25 @@ h1 {
 
 
 /* =========================================================
-   ARROW
+   DISCORD
 ========================================================= */
 
-.arrow {
-
-    color: #6c8275;
-
-    font-size: 18px;
-
-    transition:
-        color 0.2s ease,
-        transform 0.2s ease;
-}
-
-
-.social:hover .arrow {
-
-    color: var(--green);
-
-    transform:
-        translate(2px, -2px);
-}
-
-
-/* =========================================================
-   PLATFORM COLORS
-========================================================= */
-
-.twitch:hover {
+.discord:hover {
 
     border-color:
-        rgba(145, 70, 255, 0.4);
+        rgba(88, 101, 242, 0.5);
 
     background:
-        rgba(145, 70, 255, 0.08);
+        rgba(88, 101, 242, 0.09);
 }
 
 
-.twitch:hover .icon {
+.discord:hover .icon {
 
-    color: #a970ff;
-
-    background:
-        rgba(145, 70, 255, 0.12);
-}
-
-
-.youtube:hover {
-
-    border-color:
-        rgba(255, 50, 50, 0.4);
+    color: #7289da;
 
     background:
-        rgba(255, 50, 50, 0.06);
-}
-
-
-.youtube:hover .icon {
-
-    color: #ff4d4d;
-
-    background:
-        rgba(255, 50, 50, 0.12);
-}
-
-
-.soundcloud:hover {
-
-    border-color:
-        rgba(255, 120, 30, 0.4);
-
-    background:
-        rgba(255, 120, 30, 0.06);
-}
-
-
-.soundcloud:hover .icon {
-
-    color: #ff8a3d;
-
-    background:
-        rgba(255, 120, 30, 0.12);
-}
-
-
-.steam:hover {
-
-    border-color:
-        rgba(100, 150, 190, 0.4);
-
-    background:
-        rgba(100, 150, 190, 0.06);
-}
-
-
-.steam:hover .icon {
-
-    color: #79b8e5;
-
-    background:
-        rgba(100, 150, 190, 0.12);
-}
-
-
-.instagram:hover {
-
-    border-color:
-        rgba(220, 80, 180, 0.4);
-
-    background:
-        rgba(220, 80, 180, 0.06);
-}
-
-
-.instagram:hover .icon {
-
-    color: #ed72c4;
-
-    background:
-        rgba(220, 80, 180, 0.12);
+        rgba(88, 101, 242, 0.15);
 }
 
 
@@ -685,7 +680,7 @@ h1 {
 
 .footer {
 
-    margin-top: 28px;
+    margin-top: 24px;
 
     color: #53685c;
 
@@ -735,6 +730,8 @@ h1 {
 
     .glass-card {
 
+        max-width: 380px;
+
         padding:
             28px
             18px
@@ -773,15 +770,28 @@ h1 {
 
     .social {
 
+        border-radius: 17px;
+    }
+
+
+    .icon {
+
+        width: 56px;
         height: 56px;
 
-        padding:
-            0 13px;
+        border-radius: 16px;
+    }
+
+
+    .icon svg {
+
+        width: 30px;
+        height: 30px;
     }
 
 
     .footer {
 
-        margin-top: 20px;
+        margin-top: 18px;
     }
 }
