@@ -1,160 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>sxrcore</title>
-    <meta name="description" content="sxrcore — official social links">
+
+    <meta
+        name="description"
+        content="sxrcore — official social links"
+    >
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Background -->
-    <div class="background">
-        <div class="glow glow-1"></div>
-        <div class="glow glow-2"></div>
-        <div class="glow glow-3"></div>
-    </div>
+<!-- Background -->
+<div class="background">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
+</div>
 
 
-    <!-- Main -->
-    <main class="container">
+<!-- Main -->
+<main class="container">
 
-        <section class="glass-card">
+    <section class="glass-card">
 
-
-            <!-- Navigation -->
-            <nav class="navigation">
-
-                <a href="/" class="nav-button active">
-                    <span class="nav-icon">⌂</span>
-                    <span>Home</span>
-                </a>
-
-                <a href="/uncrownedkings/" class="nav-button">
-                    <span class="nav-icon">♛</span>
-                    <span>Uncrowned</span>
-                </a>
-
-                <a href="/projects/" class="nav-button">
-                    <span class="nav-icon">◆</span>
-                    <span>Projects</span>
-                </a>
-
-            </nav>
+        <!-- Avatar -->
+        <div class="avatar">
+            S
+        </div>
 
 
-            <!-- Avatar -->
-            <div class="avatar">
-                S
+        <!-- Title -->
+        <h1>sxrcore</h1>
+
+        <p class="subtitle">
+            official links
+        </p>
+
+
+        <!-- Loading -->
+        <div class="loader-wrapper" id="loader">
+
+            <div class="loader">
+                <div class="loader-progress"></div>
             </div>
 
-
-            <!-- Title -->
-            <h1>sxrcore</h1>
-
-            <p class="subtitle">
-                official links
-            </p>
+        </div>
 
 
-            <!-- Social Links -->
-            <div class="links">
+        <!-- Social Links -->
+        <div class="links" id="socialLinks">
+
+            <!-- Twitch -->
+            <a
+                href="https://www.twitch.tv/sxrcore"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social twitch"
+            >
+                <span class="icon">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M4 2h18v13l-5 5h-4l-3 3v-3H4V2zm2 2v14h5v2l2-2h3l4-4V4H6zm3 3h2v6H9V7zm5 0h2v6h-2V7z"
+                        />
+                    </svg>
+
+                </span>
+
+                <span>Twitch</span>
+
+                <span class="arrow">↗</span>
+            </a>
 
 
-                <!-- Twitch -->
-                <a
-                    href="https://www.twitch.tv/sxrcore"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="social twitch"
-                >
-                    <span class="icon">TW</span>
+            <!-- YouTube -->
+            <a
+                href="https://www.youtube.com/@sxrcore"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social youtube"
+            >
+                <span class="icon">
 
-                    <span>Twitch</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.7V8.3l6.3 3.7-6.3 3.7z"
+                        />
+                    </svg>
 
-                    <span class="arrow">↗</span>
-                </a>
+                </span>
 
+                <span>YouTube</span>
 
-                <!-- YouTube -->
-                <a
-                    href="https://www.youtube.com/@sxrcore"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="social youtube"
-                >
-                    <span class="icon">YT</span>
-
-                    <span>YouTube</span>
-
-                    <span class="arrow">↗</span>
-                </a>
+                <span class="arrow">↗</span>
+            </a>
 
 
-                <!-- SoundCloud -->
-                <a
-                    href="https://soundcloud.com/sxrcore"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="social soundcloud"
-                >
-                    <span class="icon">SC</span>
+            <!-- SoundCloud -->
+            <a
+                href="https://soundcloud.com/sxrcore"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social soundcloud"
+            >
+                <span class="icon">
 
-                    <span>SoundCloud</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M1 15.5c0 1.2.4 2.2 1.1 2.2s1.1-1 1.1-2.2-.4-2.2-1.1-2.2S1 14.3 1 15.5zm3.1 0c0 1.7.5 3.1 1.3 3.1s1.3-1.4 1.3-3.1-.5-3.1-1.3-3.1-1.3 1.4-1.3 3.1zm3.3 0c0 2.1.6 3.8 1.5 3.8s1.5-1.7 1.5-3.8-.6-3.8-1.5-3.8-1.5 1.7-1.5 3.8zm4.2-7.7c-.8 0-1.5.1-2.2.4-.2.1-.3.3-.3.5v10.6h8.5c2.9 0 5.3-2.4 5.3-5.3s-2.4-5.3-5.3-5.3c-.5 0-1 .1-1.5.2C15.1 9.2 13.6 7.8 11.6 7.8z"
+                        />
+                    </svg>
 
-                    <span class="arrow">↗</span>
-                </a>
+                </span>
 
+                <span>SoundCloud</span>
 
-                <!-- Steam -->
-                <a
-                    href="https://steamcommunity.com/id/sxrcore/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="social steam"
-                >
-                    <span class="icon">ST</span>
-
-                    <span>Steam</span>
-
-                    <span class="arrow">↗</span>
-                </a>
+                <span class="arrow">↗</span>
+            </a>
 
 
-                <!-- Instagram -->
-                <a
-                    href="https://www.instagram.com/sxrrcore/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="social instagram"
-                >
-                    <span class="icon">IG</span>
+            <!-- Steam -->
+            <a
+                href="https://steamcommunity.com/id/sxrcore/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social steam"
+            >
+                <span class="icon">
 
-                    <span>Instagram</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M12.1 1.5A10.5 10.5 0 0 0 1.7 10l5.4 2.2a3.5 3.5 0 1 1-1 4.9L2.3 15.7A10.5 10.5 0 1 0 12.1 1.5zm4.3 3.1a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6zm0 1.3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM8.3 13.4a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4z"
+                        />
+                    </svg>
 
-                    <span class="arrow">↗</span>
-                </a>
+                </span>
+
+                <span>Steam</span>
+
+                <span class="arrow">↗</span>
+            </a>
 
 
-            </div>
+            <!-- Instagram -->
+            <a
+                href="https://www.instagram.com/sxrrcore/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social instagram"
+            >
+                <span class="icon">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect
+                            x="3"
+                            y="3"
+                            width="18"
+                            height="18"
+                            rx="5"
+                            ry="5"
+                        />
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="4"
+                        />
+
+                        <circle
+                            cx="17.5"
+                            cy="6.5"
+                            r="1"
+                            class="instagram-dot"
+                        />
+                    </svg>
+
+                </span>
+
+                <span>Instagram</span>
+
+                <span class="arrow">↗</span>
+            </a>
+
+        </div>
 
 
-            <!-- Footer -->
-            <div class="footer">
-                © 2026 sxrcore
-            </div>
+        <!-- Footer -->
+        <div class="footer">
+            © 2026 sxrcore
+        </div>
+
+    </section>
+
+</main>
 
 
-        </section>
+<script>
+    window.addEventListener("load", () => {
 
-    </main>
+        const loader = document.getElementById("loader");
+        const socialLinks = document.getElementById("socialLinks");
 
+        // Время загрузки полоски
+        const loadingTime = 1200;
+
+        setTimeout(() => {
+
+            loader.classList.add("hidden");
+
+            socialLinks.classList.add("visible");
+
+        }, loadingTime);
+
+    });
+</script>
 
 </body>
-
 </html>
