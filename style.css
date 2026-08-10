@@ -678,19 +678,9 @@ h1 {
    VISITOR COUNTER
 ========================================================= */
 
-.footer {
+.visitor-counter {
 
     margin-top: 24px;
-
-    color: #53685c;
-
-    font-size: 11px;
-
-    letter-spacing: 0.5px;
-}
-
-
-.visitor-counter {
 
     display: flex;
 
@@ -704,19 +694,25 @@ h1 {
 
     font-size: 11px;
 
+    line-height: 1;
+
     letter-spacing: 0.5px;
 }
 
 
-.eye {
+.visitor-eye {
 
-    width: 14px;
+    width: 14px !important;
 
-    height: 14px;
+    height: 14px !important;
+
+    display: block;
+
+    flex-shrink: 0;
 
     fill: none;
 
-    stroke: var(--green);
+    stroke: #39ff88;
 
     stroke-width: 1.7;
 
@@ -729,6 +725,26 @@ h1 {
             0 0 5px
             rgba(57, 255, 136, 0.45)
         );
+}
+
+
+.visitor-eye circle {
+
+    fill: #39ff88;
+
+    stroke: none;
+}
+
+
+#visit-count {
+
+    display: inline-block;
+
+    min-width: 10px;
+
+    color: #53685c;
+
+    font-size: 11px;
 }
 
 
