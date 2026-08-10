@@ -255,15 +255,15 @@
 
             <!-- Visitor Counter -->
 
-<div class="footer visitor-counter">
+<div class="visitor-counter">
 
     <svg
-        class="eye"
+        class="visitor-eye"
         viewBox="0 0 24 24"
         aria-hidden="true"
     >
         <path
-            d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"
+            d="M2 12C2 12 5.5 6 12 6C18.5 6 22 12 22 12C22 12 18.5 18 12 18C5.5 18 2 12 2 12Z"
         />
 
         <circle
@@ -273,7 +273,7 @@
         />
     </svg>
 
-    <span id="visit-count">—</span>
+    <span id="visit-count">...</span>
 
 </div>
 
@@ -285,52 +285,62 @@
 
     <script>
 
-    document.addEventListener(
-        "DOMContentLoaded",
-        () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-            const loader =
-                document.getElementById("loader");
+        const loader =
+            document.getElementById("loader");
 
-            const socialLinks =
-                document.getElementById("socialLinks");
-
-
-            setTimeout(() => {
-
-                loader.classList.add("hide");
-
-                socialLinks.classList.add("show");
-
-            }, 1400);
+        const socialLinks =
+            document.getElementById("socialLinks");
 
 
-            /* Visitor Counter */
+        setTimeout(() => {
 
-            fetch(
-                "https://site-counter.saakyan-exe.workers.dev/count"
-            )
+            loader.classList.add("hide");
 
-                .then(response => response.json())
+            socialLinks.classList.add("show");
 
-                .then(data => {
+        }, 1400);
 
-                    document.getElementById(
-                        "visit-count"
-                    ).textContent = data.visits;
 
-                })
+        /* Visitor Counter */
 
-                .catch(() => {
+        fetch(
+            "https://site-counter.saakyan-exe.workers.dev/count"
+        )
+            .then(response => {
 
-                    document.getElementById(
-                        "visit-count"
-                    ).textContent = "—";
+                if (!response.ok) {
+                    throw new Error("Counter request failed");
+                }
 
-                });
+                return response.json();
 
-        }
-    );
+            })
+            .then(data => {
+
+                document.getElementById(
+                    "visit-count"
+                ).textContent = data.visits;
+
+            })
+            .catch(error => {
+
+                console.error(
+                    "Visitor counter error:",
+                    error
+                );
+
+                document.getElementById(
+                    "visit-count"
+                ).textContent = "—";
+
+            });
+
+    }
+);
 
 </script>
 
